@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<title>Fractals</title>
+		<link rel="stylesheet" type="text/css" href="css/fractals.css"/>
+		<script src="js/fractals.js"></script>
+		<script src="js/triangle.js"></script>
+		<script src="js/carpet.js"></script>
+	</head>
+
+	<body>
+		<header>
+			<a href="https://github.com/ssd352/fiver"><button id="project">View Project on GitHub</button></a>
+		</header>
+		<main>
+			<input type="text" id="iter" placeholder="Number of Iterations"/>
+
+
+			<input type="radio" id="triangle" name="fractals" checked/>
+			<label for="triangle">Sierpinski Triangle</label>
+			<input type="radio" id="carpet" name="fractals"/>
+			<label for="carpet">Sierpinski Carpet</label>
+			<br/>
+
+			<button onclick="draw()">Draw</button>
+
+			<svg id="canvas">
+
+			</svg>
+		</main>
+	</body>
+
+
+</html>
