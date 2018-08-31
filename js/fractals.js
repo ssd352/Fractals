@@ -5,11 +5,35 @@ function draw(){
 
 	let triangleRadio = document.getElementById("triangle");
 	let carpetRadio = document.getElementById("carpet");
+	let kochRadio = document.getElementById("koch");
 
 	while (canvas.hasChildNodes()){
 			canvas.removeChild(canvas.lastChild);
 	}
 	canvas.setAttributeNS(null, "viewBox", "0 0 100 100");
+		
+	if (kochRadio.checked){
+			if (numberOfIterations > 8)
+				return;
+			
+			var polyline = document.createElementNS('http://www.w3.org/2000/svg','polyline');
+			canvas.appendChild(polyline);
+			//polyline.setAttributeNS(null, "stroke-width", "0");	
+			let a = 46 * Math.sqrt(3);
+			let y1 = Math.sqrt(3) / 6 * a + 5;
+			let x1 = 5;
+			let y2 = y1;
+			let x2 = x1 + a;
+			let x3 = (x1 + x2) / 2;
+			let y3 = y1 + a * Math.sqrt(3) / 2;
+			let points = koch(x1, y1, x2, y2, x3, y3, numberOfIterations);
+			//let points = x1+","+y1+" "+x2+","+y2+" "+x3+","+y3+" ";
+			polyline.setAttributeNS(null, "points", points);	
+					
+	}
+		
+
+
 	if (triangleRadio.checked)
 	{
 		if (numberOfIterations > 10)
