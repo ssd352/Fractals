@@ -35,7 +35,7 @@ function koch(x1, y1, x2, y2, x3, y3, n){
 	}
 	return outputString;
 }
-
+//TODO
 class Node{
 
 	constructor(x, y) {
