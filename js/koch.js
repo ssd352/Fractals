@@ -1,10 +1,9 @@
 function koch(x1, y1, x2, y2, x3, y3, n){
-	let initialNode = new Node(x1, y1);
-	let lastNode = new Node(x1, y1);
-	lastNode.next = null;
-	let n2 = new Node(x2, y2);
+	let initialNode = {x: x1, y: y1};
+	let lastNode = {x: x1, y: y1, next: null};
+	let n2 = {x: x2, y: y2};
 	initialNode.next = n2;
-	let n3 = new Node(x3, y3);
+	let n3 = {x: x3, y: y3};
 	n2.next = n3;
 	n3.next = lastNode;
 	for (let cnt = 0; cnt < n; ++cnt){
@@ -17,9 +16,9 @@ function koch(x1, y1, x2, y2, x3, y3, n){
 			perpy = -vecx;
 			midx = (next.x + p.x) / 2;
 			midy = (next.y + p.y) / 2;
-			let tmp1 = new Node((2 * p.x + next.x) / 3, (2 * p.y + next.y) / 3);
-			let tmp2 = new Node(midx + perpx, midy + perpy);
-			let tmp3 = new Node((p.x + 2 * next.x) / 3, (p.y + 2 * next.y) / 3);
+			let tmp1 = {x: (2 * p.x + next.x) / 3, y: (2 * p.y + next.y) / 3};
+			let tmp2 = {x: midx + perpx, y: midy + perpy};
+			let tmp3 = {x: (p.x + 2 * next.x) / 3, y: (p.y + 2 * next.y) / 3};
 			p.next = tmp1;
 			tmp1.next = tmp2;
 			tmp2.next = tmp3;
@@ -35,14 +34,3 @@ function koch(x1, y1, x2, y2, x3, y3, n){
 	}
 	return outputString;
 }
-//TODO
-class Node{
-
-	constructor(x, y) {
-		this.x = x;
-		this.y = y;
-		this.next = null;
-	}
-}
-
-
