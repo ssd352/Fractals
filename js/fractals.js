@@ -6,6 +6,8 @@ function draw(){
 	let triangleRadio = document.getElementById("triangle");
 	let carpetRadio = document.getElementById("carpet");
 	let kochRadio = document.getElementById("koch");
+	let styles = getComputedStyle(document.documentElement);
+	
 
 	while (canvas.hasChildNodes()){
 			canvas.removeChild(canvas.lastChild);
@@ -29,6 +31,8 @@ function draw(){
 			let points = koch(x1, y1, x2, y2, x3, y3, numberOfIterations);
 			//let points = x1+","+y1+" "+x2+","+y2+" "+x3+","+y3+" ";
 			polyline.setAttributeNS(null, "points", points);	
+			let color = styles.getPropertyValue('--snowflake_color');
+			polyline.setAttributeNS(null, "fill", color);
 					
 	}
 		
@@ -48,7 +52,9 @@ function draw(){
 		var polygon = document.createElementNS('http://www.w3.org/2000/svg','polygon');
 		let points = x1+","+y1+" "+x2+","+y2+" "+x3+","+y3+" ";
 		polygon.setAttributeNS(null, "points", points);
-		polygon.setAttributeNS(null, "fill", "blue");
+		let color = styles.getPropertyValue('--triangle_color');
+		// alert(color);
+		polygon.setAttributeNS(null, "fill", color);
 		canvas.appendChild(polygon);
 		triangle(canvas, x1, y1, x2, y2, x3, y3, numberOfIterations);
 	}
@@ -65,7 +71,9 @@ function draw(){
 		rect.setAttributeNS(null, "y", y1);
 		rect.setAttributeNS(null, "width", a);
 		rect.setAttributeNS(null, "height", a);
-		rect.setAttributeNS(null, "fill", "black");
+		let color = styles.getPropertyValue('--carpet_color');
+		// alert(color);
+		rect.setAttributeNS(null, "fill", color);
 		canvas.appendChild(rect);
 		carpet(canvas, x1, y1, x2, y2, numberOfIterations);
 	}

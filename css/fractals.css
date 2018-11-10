@@ -1,9 +1,14 @@
+:root{
+	--triangle_color: blue;
+	--carpet_color: black;
+	--snowflake_color: gray;
+}
 body{
 	background-color:white;
 	font-size:2rem;
 }
 polyline{
-	fill:gray;
+	/* fill:gray; */
 	stroke:black;
 	stroke-width:0.1;
 }
@@ -13,6 +18,7 @@ polygon{
 }
 svg{
 	width:100%;
+	/* width: 100vw; */
 	height: auto;
 }
 header{
